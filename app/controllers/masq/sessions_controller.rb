@@ -30,6 +30,10 @@ module Masq
       current_account.forget_me
       cookies.delete :auth_token
       reset_session
+      if !params[:continue].blank?
+        redirect_to params[:continue]
+        return
+      end
       redirect_to root_path, :notice => t(:you_are_now_logged_out)
     end
 
