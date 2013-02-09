@@ -20,7 +20,7 @@ Masq::Engine.routes.draw do
 
   get "/login" => "sessions#new", :as => :login
   get "/logout" => "sessions#destroy", :as => :logout
-  post '/resend_activation_email/*account' => 'accounts#resend_activation_email', :as => :resend_activation_email
+  post '/resend_activation_email/*account' => 'accounts#resend_activation_email', :format => false, :as => :resend_activation_email
 
   match "/server" => "server#index", :as => :server
   match "/server/decide" => "server#decide", :as => :decide
@@ -34,7 +34,7 @@ Masq::Engine.routes.draw do
   post "/consumer/start" => "consumer#start", :as => :consumer_start
   match "/consumer/complete" => "consumer#complete", :as => :consumer_complete
 
-  get "/*account" => "accounts#show", :as => :identity
+  get "/*account" => "accounts#show", :format => false, :as => :identity
 
   root :to => "info#index"
 end
