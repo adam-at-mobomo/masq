@@ -2,4 +2,4 @@
 
 <%=t :please_activate_it_by_clicking_the_following_link %>:
 
-<%= activate_account_url(:activation_code => @account.activation_code) %>
+<%= activate_account_url(:activation_code => @account.activation_code, :protocol => scheme) %>
