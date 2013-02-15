@@ -34,7 +34,7 @@ Masq::Engine.routes.draw do
   post "/consumer/start" => "consumer#start", :as => :consumer_start
   match "/consumer/complete" => "consumer#complete", :as => :consumer_complete
 
-  get "/acct/*account" => "accounts#show", :format => false, :as => :identity
+  get "/*account" => "accounts#show", :format => false, :as => :identity
 
   root :to => "info#index"
 end
