@@ -1,5 +1,11 @@
 module Masq
   class AccountMailer < ActionMailer::Base
+    helper do
+      def scheme
+        Masq::Engine.config.masq['use_ssl'] ? 'https' : 'http'
+      end
+    end
+
     default :from => Masq::Engine.config.masq['email']
     default_url_options[:host] = Masq::Engine.config.masq['host']
 
